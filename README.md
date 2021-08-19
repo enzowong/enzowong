@@ -1,6 +1,6 @@
 - 👋 Hi, I’m enzowong
 - 👀 I’m interested in coding, that’s why I came here.
-- 🌱 I’m currently learning how to make a github website.
+- 🌱 I’m currently learning something about github.
 
 <!---
 enzowong/enzowong is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
