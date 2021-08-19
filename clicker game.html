@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+		<style>
+			body {
+				font-family: sans-serif;
+			}
+			button {
+				background-color: green;
+				border: 3px solid darkgreen;
+				width: 100px;
+				font-family: sans-serif;
+				color: white;
+				border-radius: 10px;
+			}
+			#clickme {
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="clickme">Click</button>
+		<center>
+			<p id="princessmiko"></p>
+			<button id="clickvalup"></button><br><br><br>
+			<button id="workerup1"></button><br><br><br>
+			<button id="workerup2"></button><br><br><br>
+			<button id="workerup3"></button><br><br><br>
+			<button id="workerup4"></button><br><br><br>
+			<button id="workerup5"></button>
+		</center>
+		<script>
+			//variables
+			var clicks = 0;
+			var x = 1;
+			var clickval = 1;
+			var requireclickval = 10;
+			var requireworkers1 = 100;
+			var requireworkers2 = 5000;
+			var requireworkers3 = 250000;
+			var requireworkers4 = 3000000;
+			var requireworkers5 = 100000000;
+			var buttonweird = false;
+			//functions
+			function click() {
+				clicks += clickval;
+				document.getElementById("princessmiko").innerHTML = clicks;
+				document.getElementById("clickvalup").innerHTML = "Upgrade Click Value (Require " + requireclickval  + ")";
+				document.getElementById("workerup1").innerHTML = "Upgrade noob workers (Require " + requireworkers1 + ")";
+				document.getElementById("workerup2").innerHTML = "Upgrade good workers (Require " + requireworkers2 + ")";
+				document.getElementById("workerup3").innerHTML = "Upgrade pro workers (Require " + requireworkers3 + ")";
+				document.getElementById("workerup4").innerHTML = "Upgrade HACKERS (Require " + requireworkers4 + ")";
+				document.getElementById("workerup5").innerHTML = "Upgrade doubleboost (Require " + requireworkers5 + ")";
+				if (buttonweird) {
+					buttonweird = false;
+					document.getElementById("clickme").style = "height: 100px;";
+				} else {
+					buttonweird = true;
+					document.getElementById("clickme").style = "height: 100px; border: 5px solid yellow; background-color: blue; color: white;";
+				}
+			}
+			
+			function up1() {
+				if (clicks >= requireworkers1) {
+					clicks -= requireworkers1;
+					setInterval(click, 1000);
+					requireworkers1 *= 2;
+					document.getElementById("princessmiko").innerHTML = clicks;
+					document.getElementById("workerup1").innerHTML = "Upgrade noob workers (Require " + requireworkers1 + ")";
+				} else {
+					alert("not enough clicks!");
+				}
+			}
+			function up2() {
+				if (clicks >= requireworkers2) {
+					clicks -= requireworkers2;
+					setInterval(click, 1000/5);
+					requireworkers2 *= 2;
+					document.getElementById("princessmiko").innerHTML = clicks;
+					document.getElementById("workerup2").innerHTML = "Upgrade good workers (Require " + requireworkers2 + ")";
+					
+				} else {
+					alert("not enough clicks!");
+				}
+			}
+			function up3() {
+				if (clicks >= requireworkers3) {
+					clicks -= requireworkers3;
+					setInterval(click, 1000/5/5);
+					requireworkers3 *= 2;
+					document.getElementById("princessmiko").innerHTML = clicks;
+					document.getElementById("workerup3").innerHTML = "Upgrade pro workers (Require " + requireworkers3 + ")";
+				} else {
+					alert("not enough clicks!");
+				}
+			}
+			function up4() {
+				if (clicks >= requireworkers4) {
+					clicks -= requireworkers4;
+					setInterval(function(){clicks+=1000000}, 3000);
+					requireworkers4 *= 2;
+					document.getElementById("princessmiko").innerHTML = clicks;
+					document.getElementById("workerup4").innerHTML = "Upgrade HACKERS (Require " + requireworkers4 + ")";
+				} else {
+					alert("not enough clicks!");
+				}
+			}
+			function up5() {
+				if (clicks >= requireworkers5) {
+					clicks -= requireworkers5;
+					setInterval(function(){clicks*=2}, 10000);
+					requireworkers5 *= 2;
+					document.getElementById("princessmiko").innerHTML = clicks;
+					document.getElementById("workerup5").innerHTML = "Upgrade doubleboost (Require " + requireworkers5 + ")";
+				} else {
+					alert("not enough clicks!");
+				}
+			}
+			function upclickval() {
+				if (clicks >= requireclickval) {
+					clicks -= requireclickval;
+					clickval += x;
+					x += 1;
+					requireclickval *= 2;
+					document.getElementById("princessmiko").innerHTML = clicks;
+					document.getElementById("clickvalup").innerHTML = "Upgrade Click Value (Require " + requireclickval + ")";
+				} else {
+					alert("not enough clicks!");
+				}
+			}
+			//onclicks
+			document.getElementById("clickme").onclick = click;
+			document.getElementById("clickvalup").onclick = upclickval;
+			document.getElementById("workerup1").onclick = up1;
+			document.getElementById("workerup2").onclick = up2;
+			document.getElementById("workerup3").onclick = up3;
+			document.getElementById("workerup4").onclick = up4;
+			document.getElementById("workerup5").onclick = up5;
+		</script>
+	</body>
+</html>
